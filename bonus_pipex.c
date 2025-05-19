@@ -6,7 +6,7 @@
 /*   By: nakanoshunka <nakanoshunka@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by kube              #+#    #+#             */
-/*   Updated: 2025/05/16 21:43:46 by nakanoshunk      ###   ########.fr       */
+/*   Updated: 2025/05/19 18:44:52 by nakanoshunk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,13 +181,9 @@ int	bonus_pipex_run(int argc, char **argv, char **envp)
 	node.infile_fd = open(argv[1], O_RDONLY);
 	if (node.infile_fd == -1)
 		return (-1);
-	node.outfile_fd = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+	node.outfile_fd = open(argv[argc - 1], O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (node.outfile_fd == -1)
 		return (-1);
-	// if (ft_strncmp(argv[1], "here_doc", 9) == 0)
-	// {
-
-	// }
 	node.pip = malloc(sizeof(int *) * (cmdc - 1));
 	if (!node.pip)
 		return (0);
